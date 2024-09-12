@@ -1,66 +1,140 @@
-/* Reset básico */
-body {
-    font-family: Arial, sans-serif;
+/* General Styles */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Cabeçalho */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
 .header {
     background-color: #0e1a33;
-    color: white;
+    color: #ffffff;
     padding: 20px 0;
-    position: relative;
 }
 
-.header .container {
+.header-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-}
-
-.header .logo {
-    height: 50px;
-}
-
-.header h1 {
-    margin: 0;
-}
-
-/* Conteúdo principal */
-.main-content {
-    padding: 20px;
-}
-
-/* Container padrão */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 0 20px;
 }
 
-/* Rodapé */
-.footer {
+.header-logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+/* Accessibility Controls */
+.accessibility-controls {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.accessibility-icon {
     background-color: #0e1a33;
-    color: white;
-    padding: 20px 0;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.accessibility-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.accessibility-menu button {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+    text-align: left;
+    color: #0e1a33;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #0e1a33;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-/* Estilo para os grupos de formulários */
+/* Form Styles */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+
+/* Efeito ao passar o mouse sobre o fieldset */
+fieldset:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+/* Efeito ao focar em qualquer input dentro do fieldset */
+fieldset:focus-within {
+    border-color: #28a745;
+    background-color: #e8f5e9;
+}
+
+legend {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0e1a33;
+    padding: 0 10px;
+}
+
 .form-group {
     margin-bottom: 15px;
 }
 
 .form-group label {
     display: block;
+    font-weight: bold;
     margin-bottom: 5px;
 }
 
-.form-group input,
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="file"],
+.form-group select,
 .form-group textarea {
     width: 100%;
     padding: 10px;
@@ -68,111 +142,402 @@ body {
     border-radius: 4px;
 }
 
-.error {
-    color: red;
-    font-size: 0.875em;
+.form-group textarea {
+    resize: vertical;
 }
 
-/* Botões */
-button {
+.checkbox-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+.footer {
     background-color: #0e1a33;
-    color: white;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Audio Icon */
+.audio-icon {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #0e1a33;
+}
+
+/* Input Focus */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0e1a33;
+    outline: none;
+}
+
+/* Accessibility Menu Active State */
+.accessibility-menu.active {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-logo {
+        margin-bottom: 10px;
+    }
+
+    .main-content {
+        padding: 0 15px;
+    }
+}
+
+/* Estilização Básica dos Botões */
+.btn {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    background-color: #007BFF;
+    /* Azul padrão */
+    color: #FFFFFF;
     border: none;
-    padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    outline: none;
+    /* Remove o contorno padrão */
 }
 
-button:hover {
-    background-color: #0d1932;
+/* Estado Hover: quando o cursor está sobre o botão */
+.btn:hover {
+    background-color: #0056b3;
+    /* Azul mais escuro */
+    transform: translateY(-2px);
+    /* Leve elevação */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Controles de Acessibilidade */
+/* Estado Focus: quando o botão está focado (acessível via teclado) */
+.btn:focus {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+    /* Contorno azul */
+}
+
+/* Estado Active: quando o botão está sendo clicado */
+.btn:active {
+    background-color: #004085;
+    /* Azul ainda mais escuro */
+    transform: translateY(0);
+    /* Remove a elevação */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilização para Melhor Acessibilidade: Foco Visível */
+.btn:focus-visible {
+    outline: 2px dashed #ffbf47;
+    /* Contorno visível para navegação por teclado */
+}
+
+
+
+/* ====== Contêiner de Controles de Acessibilidade ====== */
 .accessibility-controls {
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
+/* ====== Botão de Ícone de Acessibilidade ====== */
 .accessibility-icon {
-    background-color: #0e1a33;
-    color: white;
+    background-color: #007BFF;
+    /* Azul padrão */
+    color: #FFFFFF;
     border: none;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    font-size: 24px;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .accessibility-icon:hover {
-    background-color: #0d1932;
+    background-color: #0056b3;
+    /* Azul mais escuro */
+    transform: scale(1.05);
 }
 
+.accessibility-icon:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.accessibility-icon:active {
+    background-color: #004085;
+    /* Azul ainda mais escuro */
+    transform: scale(1);
+}
+
+/* ====== Menu de Acessibilidade ====== */
 .accessibility-menu {
     display: none;
-    position: absolute;
-    bottom: 70px;
-    right: 0;
-    background-color: #fff;
-    border: 1px solid #ccc;
+    /* Oculto por padrão */
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 10px;
-    width: 200px;
-    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    animation: fadeIn 0.3s ease-in-out;
 }
 
+/* Exibir o menu quando ativo */
+.accessibility-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== Botões do Menu ====== */
 .accessibility-menu button {
-    background: transparent;
-    border: none;
-    color: #0e1a33;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 10px;
-    text-align: left;
-    width: 100%;
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
 }
 
 .accessibility-menu button:hover {
-    background-color: #0e1a33;
-    color: #fff;
+    background-color: #f0f0f0;
+    transform: translateX(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para alto contraste */
-.high-contrast {
-    background-color: #fff;
-    color: #000;
+.accessibility-menu button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
-.high-contrast input,
-.high-contrast textarea {
-    background-color: #fff;
-    color: #000;
-    border: 1px solid #000;
+.accessibility-menu button:active {
+    background-color: #e0e0e0;
+    transform: translateX(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para modo noturno */
-.dark-mode {
+/* ====== Animação de Fade In ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 600px) {
+    .accessibility-controls {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .accessibility-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .accessibility-menu {
+        min-width: 150px;
+        padding: 8px;
+    }
+
+    .accessibility-menu button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+/* ====== Modos Especiais (Opcional) ====== */
+/* Exemplo de como você pode estilizar diferentes modos */
+body.dark-mode {
     background-color: #121212;
     color: #e0e0e0;
 }
 
-.dark-mode input,
-.dark-mode textarea {
-    background-color: #333;
-    color: #e0e0e0;
-    border: 1px solid #555;
+body.high-contrast {
+    background-color: #000000;
+    color: #ffffff;
 }
 
-/* Estilos para inversão de cores */
-.invert-colors {
-    filter: invert(1) contrast(1.2);
+body.invert-colors {
+    filter: invert(1);
+}
+
+body.readable-font {
+    font-family: 'Verdana', sans-serif;
+}
+
+body.readable-spacing {
+    line-height: 1.6;
+}
+
+body.readable-cursor {
+    cursor: url('path/to/custom-cursor.png'), auto;
+}
+
+body.readable-images img {
+    /* Exemplos de estilos para imagens legíveis */
+    max-width: 100%;
+    height: auto;
+}
+
+body.readable-forms input,
+body.readable-forms textarea,
+body.readable-forms select {
+    /* Exemplos de estilos para formulários legíveis */
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.accessibility-menu button {
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.accessibility-menu button:hover {
+    background-color: #f0f0f0;
+    transform: translateX(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-menu button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.accessibility-menu button:active {
+    background-color: #e0e0e0;
+    transform: translateX(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.botaoCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.botaoCenter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Estilo básico para os botões */
+button {
+    background-color: #48c78e;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Espaço entre o ícone e o texto */
+}
+
+/* Estilo hover nos botões */
+button:hover {
+    background-color: #3ab07c;
+}
+
+/* Estilo para o botão de limpar */
+button[type="reset"] {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Efeito hover no botão de limpar */
+button[type="reset"]:hover {
+    background-color: #b3b3b3;
+}
+
+/* Centraliza o ícone e o texto verticalmente */
+button i {
+    margin-right: 5px;
+}
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    text-align: center; /* Centraliza o texto */
+    font-size: 16px; /* Tamanho de fonte mais legível */
+    font-family: 'Arial', sans-serif; /* Define uma fonte padrão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    transition: all 0.3s ease-in-out; /* Transição suave ao aparecer/desaparecer */
+}
+
+/* Alerta de sucesso */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Alerta de erro */
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Alerta de validação */
+.alert-validation {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* Container dos alertas */
+.alert-container {
+    max-width: 600px;
+    margin: 20px auto; /* Centraliza o container horizontalmente */
+    padding: 10px; /* Espaço interno para dar mais respiro */
+    text-align: center; /* Alinha o conteúdo do container ao centro */
 }

@@ -1,187 +1,227 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Inscrição - Hackathon Zup</title>
+    <title>Hackathon Zup - Equipe 3</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js" defer></script>
+    <!-- Adicione este link no <head> do seu HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-pap4A7QG9Pj6xj5lVYLPhz09vfrtEwEF0Mkd3kIu8xVFT88MV3R6d1lyUbJtjRnVlv+3TnkB7Pd3y54mUs3aKw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
+
 <body>
-<!-- Header -->
-<header class="header">
-    <div class="container">
-        <img src="https://zup.com.br/wp-content/uploads/2023/05/LogoMonotone_Negativo.png" alt="Logo Zup" class="logo">
-        <h1>Hackathon Zup - Equipe 3</h1>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <img src="https://zup.com.br/wp-content/uploads/2023/05/LogoMonotone_Negativo.png" alt="Logo Zup"
+                class="header-logo">
+            <h1 class="header-title">Hackathon Zup - Equipe 3</h1>
+        </div>
+    </header>
+
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
     </div>
-</header>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>  new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
 
-<!-- Accessibility Controls -->
-<div class="accessibility-controls">
-    <button onclick="toggleAccessibilityMenu()" class="accessibility-icon">
-        <i class="fas fa-universal-access"></i>
-    </button>
-    <div class="accessibility-menu" id="accessibility-menu">
-        <button onclick="changeFontSize('small')">Fonte menor</button>
-        <button onclick="changeFontSize('large')">Fonte maior</button>
-        <button onclick="changeFontSize('default')">Fonte padrão</button>
-        <button onclick="toggleContrast()">Preto e Branco</button>
-        <button onclick="toggleDarkMode()">Modo Noturno</button>
-        <button onclick="toggleInvertColors()">Inverter Cores</button>
+    <!-- Accessibility Controls -->
+    <div class="accessibility-controls">
+        <button onclick="toggleAccessibilityMenu()" class="accessibility-icon">
+            <i class="fas fa-universal-access"></i>
+        </button>
+        <div class="accessibility-menu" id="accessibility-menu">
+            <button onclick="changeFontSize('small')" class="fonteMenor">Fonte menor</button>
+            <button onclick="changeFontSize('large')" class="fonteMaior">Fonte maior</button>
+            <button onclick="changeFontSize('default')" class="fontePadrao">Fonte padrão</button>
+            <button onclick="toggleContrast()" class="altoContraste">Alto contraste</button>
+            <button onclick="toggleDarkMode()" class="modoEscuro">Modo escuro</button>
+            <button onclick="toggleInvertColors()" class="coresInvertidas">Cores invertidas</button>
+        </div>
     </div>
-</div>
 
-<!-- Main Content -->
-<main class="main-content">
-    <div class="container">
-        <h2>Formulário de Inscrição</h2>
-        <form id="registration-form" enctype="multipart/form-data">
-            <!-- Informações Pessoais -->
-            <fieldset>
-                <legend>Informações Pessoais</legend>
-                <div class="form-group">
-                    <label for="nome">Nome Completo</label>
-                    <input type="text" id="nome" name="nome" placeholder="Nome Completo">
-                </div>
-                <div class="form-group">
-                    <label for="data-nascimento">Data de Nascimento</label>
-                    <input type="date" id="data-nascimento" name="data-nascimento">
-                </div>
-                <div class="form-group">
-                    <label for="genero">Gênero (opcional)</label>
-                    <input type="text" id="genero" name="genero" placeholder="Gênero (opcional)">
-                </div>
-                <div class="form-group">
-                    <label for="nacionalidade">Nacionalidade</label>
-                    <input type="text" id="nacionalidade" name="nacionalidade" placeholder="Nacionalidade">
-                </div>
-                <div class="form-group">
-                    <label for="email">Endereço de E-mail</label>
-                    <input type="email" id="email" name="email" placeholder="Endereço de E-mail">
-                </div>
-                <div class="form-group">
-                    <label for="telefone">Número de Telefone</label>
-                    <input type="tel" id="telefone" name="telefone" placeholder="Número de Telefone">
-                </div>
-            </fieldset>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h2>Formulário de Inscrição</h2>
+            <form id="registration-form" enctype="multipart/form-data" onsubmit="return validateForm(event)">
+                <!-- Informações Pessoais -->
+                <fieldset>
+                    <legend>Informações Pessoais</legend>
+                    <div class="form-group">
+                        <label for="nome" id="label-nome">Nome Completo
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('label-nome')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <input type="text" id="nome" name="nome" placeholder="Nome Completo">
+                    </div>
 
-            <!-- Informações sobre a Deficiência -->
-            <fieldset>
-                <legend>Informações sobre a Deficiência</legend>
-                <div class="form-group">
-                    <label for="tipo-deficiencia">Tipo de Deficiência</label>
-                    <input type="text" id="tipo-deficiencia" name="tipo-deficiencia" placeholder="Tipo de Deficiência">
-                </div>
-                <div class="form-group">
-                    <label for="necessidades">Necessidades Específicas</label>
-                    <textarea id="necessidades" name="necessidades" placeholder="Necessidades Específicas"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="acessibilidade">Acessibilidade Necessária</label>
-                    <textarea id="acessibilidade" name="acessibilidade" placeholder="Acessibilidade Necessária"></textarea>
-                </div>
-            </fieldset>
+                    <div class="form-group">
+                        <label for="data-nascimento">Data de Nascimento
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('data-nascimento')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <input type="date" id="data-nascimento" name="data-nascimento">
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('sexo')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <select id="sexo" name="sexo" class="select-input">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Masculino">Masculino</option>
+                            <option value="Feminino">Feminino</option>
+                            <option value="Outro">Outro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="nacionalidade">Nacionalidade
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('nacionalidade')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <select id="nacionalidade" name="nacionalidade" class="select-input">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Brasileiro">Brasileiro</option>
+                            <option value="Estrangeiro">Estrangeiro</option>
+                        </select>
+                    </div>
+                </fieldset>
 
-            <!-- Formação Acadêmica -->
-            <fieldset>
-                <legend>Formação Acadêmica</legend>
-                <div class="form-group">
-                    <label for="grau-escolaridade">Grau de Escolaridade</label>
-                    <input type="text" id="grau-escolaridade" name="grau-escolaridade" placeholder="Grau de Escolaridade">
-                </div>
-                <div class="form-group">
-                    <label for="instituicoes">Instituições de Ensino</label>
-                    <input type="text" id="instituicoes" name="instituicoes" placeholder="Instituições de Ensino">
-                </div>
-                <div class="form-group">
-                    <label for="cursos">Cursos Relevantes</label>
-                    <input type="text" id="cursos" name="cursos" placeholder="Cursos Relevantes">
-                </div>
-            </fieldset>
+                <!-- Informações sobre a Deficiência -->
+                <fieldset>
+                    <legend>Informações sobre a Deficiência
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Informações sobre a Deficiência')"
+                            aria-label="Reproduzir áudio descrição"></i>
+                    </legend>
+                    <div class="form-group">
+                        <label for="deficiencia">Qual é a sua Deficiência?
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('Qual é a sua Deficiência?')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <select id="deficiencia" name="deficiencia" class="select-input">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Auditiva">Auditiva</option>
+                            <option value="Visual">Visual</option>
+                            <option value="Física">Física</option>
+                            <option value="Intelectual">Intelectual</option>
+                            <option value="Múltipla">Múltipla</option>
+                            <option value="Outra">Outra</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="necessidades">Necessidades Específicas
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('Necessidades Específicas')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <textarea id="necessidades" name="necessidades"
+                            placeholder="Necessidades Específicas"></textarea>
+                    </div>
+                </fieldset>
 
-            <!-- Experiência Profissional -->
-            <fieldset>
-                <legend>Experiência Profissional</legend>
-                <div class="form-group">
-                    <label for="cargo">Cargo Atual ou Último Cargo</label>
-                    <input type="text" id="cargo" name="cargo" placeholder="Cargo Atual ou Último Cargo">
-                </div>
-                <div class="form-group">
-                    <label for="empresas">Empresas Anteriores</label>
-                    <input type="text" id="empresas" name="empresas" placeholder="Empresas Anteriores">
-                </div>
-                <div class="form-group">
-                    <label for="periodo">Período de Experiência</label>
-                    <input type="text" id="periodo" name="periodo" placeholder="Período de Experiência">
-                </div>
-                <div class="form-group">
-                    <label for="responsabilidades">Principais Responsabilidades e Conquistas</label>
-                    <textarea id="responsabilidades" name="responsabilidades" placeholder="Principais Responsabilidades e Conquistas"></textarea>
-                </div>
-            </fieldset>
+                <!-- Competências e Habilidades -->
+                <fieldset>
+                    <legend>Competências e Habilidades
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Competências e Habilidades')"
+                            aria-label="Reproduzir áudio descrição"></i>
+                    </legend>
+                    <div class="form-group">
+                        <label for="linguagens">Linguagens de Programação
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('Linguagens de Programação')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox" name="linguagens" value="PHP"> PHP</label>
+                            <label><input type="checkbox" name="linguagens" value="JavaScript"> JavaScript</label>
+                            <label><input type="checkbox" name="linguagens" value="Python"> Python</label>
+                            <label><input type="checkbox" name="linguagens" value="Java"> Java</label>
+                            <label><input type="checkbox" name="linguagens" value="C#"> C#</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="ferramentas">Ferramentas e Tecnologias
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('Ferramentas e Tecnologias')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <select id="ferramentas" name="ferramentas" class="select-input">
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Git">Git</option>
+                            <option value="Docker">Docker</option>
+                            <option value="Jenkins">Jenkins</option>
+                            <option value="Kubernetes">Kubernetes</option>
+                            <option value="Outros">Outros</option>
+                        </select>
+                    </div>
+                </fieldset>
 
-            <!-- Competências e Habilidades -->
-            <fieldset>
-                <legend>Competências e Habilidades</legend>
-                <div class="form-group">
-                    <label for="linguagens">Linguagens de Programação</label>
-                    <input type="text" id="linguagens" name="linguagens" placeholder="Linguagens de Programação">
-                </div>
-                <div class="form-group">
-                    <label for="ferramentas">Ferramentas e Tecnologias</label>
-                    <input type="text" id="ferramentas" name="ferramentas" placeholder="Ferramentas e Tecnologias">
-                </div>
-                <div class="form-group">
-                    <label for="soft-skills">Soft Skills</label>
-                    <input type="text" id="soft-skills" name="soft-skills" placeholder="Soft Skills">
-                </div>
-            </fieldset>
+                <!-- Anexos -->
+                <fieldset>
+                    <legend>Anexos
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Anexos')"
+                            aria-label="Reproduzir áudio descrição"></i>
+                    </legend>
+                    <div class="form-group">
+                        <label for="Laudo">Anexar Laudo
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar Laudo')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <input type="file" id="Laudo" name="Laudo">
+                    </div>
+                    <div class="form-group">
+                        <label for="cid">Anexar CV
+                            <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar CV')"
+                                aria-label="Reproduzir áudio descrição"></i>
+                        </label>
+                        <input type="file" id="cv" name="cv">
+                    </div>
+                </fieldset>
 
-            <!-- Disponibilidade e Informações Adicionais -->
-            <fieldset>
-                <legend>Disponibilidade e Informações Adicionais</legend>
-                <div class="form-group">
-                    <label for="disponibilidade">Disponibilidade</label>
-                    <input type="text" id="disponibilidade" name="disponibilidade" placeholder="Disponibilidade">
+                <!-- Alerta de erro, sucesso e validação -->
+                <div class="alert-container">
+                    <div id="successAlert" class="alert alert-success">
+                        Formulário enviado com sucesso!
+                    </div>
+                    <div id="errorAlert" class="alert alert-error">
+                        Ocorreu um erro. Verifique os campos obrigatórios.
+                    </div>
+                    <div id="validationAlert" class="alert alert-validation">
+                        Preencha todos os campos obrigatórios.
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="outras-informacoes">Outras Informações</label>
-                    <textarea id="outras-informacoes" name="outras-informacoes" placeholder="Outras Informações"></textarea>
+
+                <!-- Botões -->
+                <div class="botaoCenter form-group m-auto">
+                    <!-- Botão de Enviar com Ícone -->
+                    <button type="submit">
+                        <i class="fas fa-paper-plane"></i> Enviar
+                    </button>
+
+                    <!-- Botão de Limpar com Ícone -->
+                    <button type="reset">
+                        <i class="fas fa-undo-alt"></i> Limpar
+                    </button>
                 </div>
-            </fieldset>
+            </form>
+        </div>
+    </main>
 
-            <!-- Anexos -->
-            <fieldset>
-                <legend>Anexos</legend>
-                <div class="form-group">
-                    <label for="Laudo">Anexar Laudo</label>
-                    <input type="file" id="Laudo" name="Laudo">
-                </div>
-                <div class="form-group">
-                    <label for="cid">Anexar CID</label>
-                    <input type="file" id="cid" name="cid">
-                </div>
-            </fieldset>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Hackathon Zup - Todos os direitos reservados.</p>
+        </div>
+    </footer>
 
-            <!-- Botões -->
-            <div class="form-group">
-                <button type="submit">Enviar</button>
-                <button type="reset">Limpar</button>
-            </div>
-
-            <!-- Mensagem de Sucesso -->
-            <div class="success" id="success-message"></div>
-        </form>
-    </div>
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="container">
-        <p>&copy; 2024 Hackathon Zup - Todos os direitos reservados.</p>
-    </div>
-</footer>
 </body>
+
 </html>
