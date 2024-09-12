@@ -1,0 +1,178 @@
+/* Reset básico */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cabeçalho */
+.header {
+    background-color: #0e1a33;
+    color: white;
+    padding: 20px 0;
+    position: relative;
+}
+
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo {
+    height: 50px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+/* Conteúdo principal */
+.main-content {
+    padding: 20px;
+}
+
+/* Container padrão */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Rodapé */
+.footer {
+    background-color: #0e1a33;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Estilo para os grupos de formulários */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.error {
+    color: red;
+    font-size: 0.875em;
+}
+
+/* Botões */
+button {
+    background-color: #0e1a33;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d1932;
+}
+
+/* Controles de Acessibilidade */
+.accessibility-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.accessibility-icon {
+    background-color: #0e1a33;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.accessibility-icon:hover {
+    background-color: #0d1932;
+}
+
+.accessibility-menu {
+    display: none;
+    position: absolute;
+    bottom: 70px;
+    right: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 200px;
+    z-index: 1000;
+}
+
+.accessibility-menu button {
+    background: transparent;
+    border: none;
+    color: #0e1a33;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.accessibility-menu button:hover {
+    background-color: #0e1a33;
+    color: #fff;
+}
+
+/* Estilos para alto contraste */
+.high-contrast {
+    background-color: #fff;
+    color: #000;
+}
+
+.high-contrast input,
+.high-contrast textarea {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+}
+
+/* Estilos para modo noturno */
+.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+.dark-mode input,
+.dark-mode textarea {
+    background-color: #333;
+    color: #e0e0e0;
+    border: 1px solid #555;
+}
+
+/* Estilos para inversão de cores */
+.invert-colors {
+    filter: invert(1) contrast(1.2);
+}
