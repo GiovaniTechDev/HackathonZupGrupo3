@@ -10,217 +10,360 @@
     <script src="js/script.js" defer></script>
     <!-- Adicione este link no <head> do seu HTML -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-pap4A7QG9Pj6xj5lVYLPhz09vfrtEwEF0Mkd3kIu8xVFT88MV3R6d1lyUbJtjRnVlv+3TnkB7Pd3y54mUs3aKw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+          integrity="sha512-pap4A7QG9Pj6xj5lVYLPhz09vfrtEwEF0Mkd3kIu8xVFT88MV3R6d1lyUbJtjRnVlv+3TnkB7Pd3y54mUs3aKw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Favicon -->
+    <link rel="icon" href="https://zupinnovation.com/wp-content/uploads/2023/04/LogoSimbolo_Branco-654x1024.png" type="image/png">
+
+
+    <style>
+        /* Estilos básicos para o cabeçalho */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            background-color: #0e1a33;
+            color: white;
+            padding: 20px;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header-logo {
+            max-width: 150px;
+        }
+
+        .header-title {
+            margin-left: 10px;
+        }
+
+        /* Estilos para o menu */
+        .menu {
+            display: flex;
+            justify-content: flex-end;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu li {
+            margin-left: 20px;
+        }
+
+        .menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .menu li a:hover {
+            background-color: #ffffff22;
+        }
+
+        /* Botões de login e registrar */
+        .menu-login-register {
+            display: flex;
+        }
+
+        .menu-login-register a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #fff;
+            margin-left: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .menu-login-register a:hover {
+            background-color: #1a3b6b;
+        }
+
+        .menu-login-register a.register-btn {
+            background-color: #3bafda;
+            color: white;
+        }
+
+        .menu-login-register a.register-btn:hover {
+            background-color: #3498db;
+        }
+
+        .main-content {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .botaoCenter {
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #0e1a33;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #1a3b6b;
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="header-container">
-            <img src="https://zup.com.br/wp-content/uploads/2023/05/LogoMonotone_Negativo.png" alt="Logo Zup"
-                class="header-logo">
-            <h1 class="header-title">Hackathon Zup - Equipe 3</h1>
-        </div>
-    </header>
+<!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <img src="https://zup.com.br/wp-content/uploads/2023/05/LogoMonotone_Negativo.png" alt="Logo Zup"
+             class="header-logo">
+        <h1 class="header-title">Hackathon Zup - Equipe 3</h1>
 
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
+        <!-- Menu de Login/Registrar -->
+        <nav>
+            <ul class="menu-login-register">
+                <br>
+                <li><a class="mt-2 mb-2" href="/login.html">Login</a></li>
+                <br>
+                <li><a class="mt-2 mb-2 register-btn" href="/registrar.html">Registrar</a></li>
+            </ul>
+        </nav>
     </div>
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-    <script>  new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
+</header>
 
-    <!-- Accessibility Controls -->
-    <div class="accessibility-controls">
-        <button onclick="toggleAccessibilityMenu()" class="accessibility-icon">
-            <i class="fas fa-universal-access"></i>
-        </button>
-        <div class="accessibility-menu" id="accessibility-menu">
-            <button onclick="changeFontSize('small')" class="fonteMenor">Fonte menor</button>
-            <button onclick="changeFontSize('large')" class="fonteMaior">Fonte maior</button>
-            <button onclick="changeFontSize('default')" class="fontePadrao">Fonte padrão</button>
-            <button onclick="toggleContrast()" class="altoContraste">Alto contraste</button>
-            <button onclick="toggleDarkMode()" class="modoEscuro">Modo escuro</button>
-            <button onclick="toggleInvertColors()" class="coresInvertidas">Cores invertidas</button>
-        </div>
+
+
+
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
     </div>
+</div>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>  new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <div class="container">
-            <h2>Formulário de Inscrição</h2>
-            <form id="registration-form" enctype="multipart/form-data" onsubmit="return validateForm(event)">
-                <!-- Informações Pessoais -->
-                <fieldset>
-                    <legend>Informações Pessoais</legend>
-                    <div class="form-group">
-                        <label for="nome" id="label-nome">Nome Completo
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('label-nome')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <input type="text" id="nome" name="nome" placeholder="Nome Completo">
-                    </div>
+<!-- Accessibility Controls -->
+<div class="accessibility-controls">
+    <button onclick="toggleAccessibilityMenu()" class="accessibility-icon">
+        <i class="fas fa-universal-access"></i>
+    </button>
+    <div class="accessibility-menu" id="accessibility-menu">
+        <button onclick="changeFontSize('small')" class="fonteMenor">Fonte menor</button>
+        <button onclick="changeFontSize('large')" class="fonteMaior">Fonte maior</button>
+        <button onclick="changeFontSize('default')" class="fontePadrao">Fonte padrão</button>
+        <button onclick="toggleContrast()" class="altoContraste">Alto contraste</button>
+        <button onclick="toggleDarkMode()" class="modoEscuro">Modo escuro</button>
+        <button onclick="toggleInvertColors()" class="coresInvertidas">Cores invertidas</button>
+    </div>
+</div>
 
-                    <div class="form-group">
-                        <label for="data-nascimento">Data de Nascimento
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('data-nascimento')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <input type="date" id="data-nascimento" name="data-nascimento">
-                    </div>
-                    <div class="form-group">
-                        <label for="sexo">Sexo
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('sexo')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <select id="sexo" name="sexo" class="select-input">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="Masculino">Masculino</option>
-                            <option value="Feminino">Feminino</option>
-                            <option value="Outro">Outro</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="nacionalidade">Nacionalidade
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('nacionalidade')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <select id="nacionalidade" name="nacionalidade" class="select-input">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="Brasileiro">Brasileiro</option>
-                            <option value="Estrangeiro">Estrangeiro</option>
-                        </select>
-                    </div>
-                </fieldset>
+<!-- Main Content -->
+<main class="main-content">
+    <div class="container">
+        <h2>Formulário de Inscrição</h2>
+        <form id="registration-form" enctype="multipart/form-data" onsubmit="return validateForm(event)">
+            <!-- Informações Pessoais -->
+            <fieldset>
+                <legend>Informações Pessoais</legend>
+                <div class="form-group">
+                    <label for="nome">Nome Completo
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('label-nome')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <input type="text" id="nome" name="nome" placeholder="Nome Completo" required>
+                </div>
 
-                <!-- Informações sobre a Deficiência -->
-                <fieldset>
-                    <legend>Informações sobre a Deficiência
-                        <i class="fas fa-volume-up audio-icon" onclick="readText('Informações sobre a Deficiência')"
-                            aria-label="Reproduzir áudio descrição"></i>
-                    </legend>
-                    <div class="form-group">
-                        <label for="deficiencia">Qual é a sua Deficiência?
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('Qual é a sua Deficiência?')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <select id="deficiencia" name="deficiencia" class="select-input">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="Auditiva">Auditiva</option>
-                            <option value="Visual">Visual</option>
-                            <option value="Física">Física</option>
-                            <option value="Intelectual">Intelectual</option>
-                            <option value="Múltipla">Múltipla</option>
-                            <option value="Outra">Outra</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="necessidades">Necessidades Específicas
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('Necessidades Específicas')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <textarea id="necessidades" name="necessidades"
-                            placeholder="Necessidades Específicas"></textarea>
-                    </div>
-                </fieldset>
+                <div class="form-group">
+                    <label for="data-nascimento">Data de Nascimento
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('data-nascimento')"
+                           aria-label="Reproduzir áudio descrição"></i></label>
+                    <input type="date" id="data-nascimento" name="data-nascimento" required>
+                </div>
 
-                <!-- Competências e Habilidades -->
-                <fieldset>
-                    <legend>Competências e Habilidades
-                        <i class="fas fa-volume-up audio-icon" onclick="readText('Competências e Habilidades')"
-                            aria-label="Reproduzir áudio descrição"></i>
-                    </legend>
-                    <div class="form-group">
-                        <label for="linguagens">Linguagens de Programação
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('Linguagens de Programação')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <div class="checkbox-group">
-                            <label><input type="checkbox" name="linguagens" value="PHP"> PHP</label>
-                            <label><input type="checkbox" name="linguagens" value="JavaScript"> JavaScript</label>
-                            <label><input type="checkbox" name="linguagens" value="Python"> Python</label>
-                            <label><input type="checkbox" name="linguagens" value="Java"> Java</label>
-                            <label><input type="checkbox" name="linguagens" value="C#"> C#</label>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="ferramentas">Ferramentas e Tecnologias
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('Ferramentas e Tecnologias')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <select id="ferramentas" name="ferramentas" class="select-input">
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="Git">Git</option>
-                            <option value="Docker">Docker</option>
-                            <option value="Jenkins">Jenkins</option>
-                            <option value="Kubernetes">Kubernetes</option>
-                            <option value="Outros">Outros</option>
-                        </select>
-                    </div>
-                </fieldset>
+                <div class="form-group">
+                    <label for="sexo">Sexo
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('sexo')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <select id="sexo" name="sexo" class="select-input" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Masculino">Masculino</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
 
-                <!-- Anexos -->
-                <fieldset>
-                    <legend>Anexos
-                        <i class="fas fa-volume-up audio-icon" onclick="readText('Anexos')"
-                            aria-label="Reproduzir áudio descrição"></i>
-                    </legend>
-                    <div class="form-group">
-                        <label for="Laudo">Anexar Laudo
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar Laudo')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <input type="file" id="Laudo" name="Laudo">
-                    </div>
-                    <div class="form-group">
-                        <label for="cid">Anexar CV
-                            <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar CV')"
-                                aria-label="Reproduzir áudio descrição"></i>
-                        </label>
-                        <input type="file" id="cv" name="cv">
-                    </div>
-                </fieldset>
+                <div class="form-group">
+                    <label for="nacionalidade">Nacionalidade
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('nacionalidade')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <select id="nacionalidade" name="nacionalidade" class="select-input" required>
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Brasileiro">Brasileiro</option>
+                        <option value="Estrangeiro">Estrangeiro</option>
+                    </select>
+                </div>
+            </fieldset>
 
-                <!-- Alerta de erro, sucesso e validação -->
-                <div class="alert-container">
-                    <div id="successAlert" class="alert alert-success">
-                        Formulário enviado com sucesso!
-                    </div>
-                    <div id="errorAlert" class="alert alert-error">
-                        Ocorreu um erro. Verifique os campos obrigatórios.
-                    </div>
-                    <div id="validationAlert" class="alert alert-validation">
-                        Preencha todos os campos obrigatórios.
+            <!-- Informações sobre a Deficiência -->
+            <fieldset>
+                <legend>Informações sobre a Deficiência
+                    <i class="fas fa-volume-up audio-icon" onclick="readText('Informações sobre a Deficiência')"
+                       aria-label="Reproduzir áudio descrição"></i>
+                </legend>
+                <div class="form-group">
+                    <label for="deficiencia">Qual é a sua Deficiência?
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Qual é a sua Deficiência?')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <select id="deficiencia" name="deficiencia" class="select-input">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Auditiva">Auditiva</option>
+                        <option value="Visual">Visual</option>
+                        <option value="Física">Física</option>
+                        <option value="Intelectual">Intelectual</option>
+                        <option value="Múltipla">Múltipla</option>
+                        <option value="Outra">Outra</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="necessidades">Necessidades Específicas
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Necessidades Específicas')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <textarea id="necessidades" name="necessidades" placeholder="Necessidades Específicas"></textarea>
+                </div>
+            </fieldset>
+
+            <!-- Competências e Habilidades -->
+            <fieldset>
+                <legend>Competências e Habilidades
+                    <i class="fas fa-volume-up audio-icon" onclick="readText('Competências e Habilidades')"
+                       aria-label="Reproduzir áudio descrição"></i>
+                </legend>
+                <div class="form-groups">
+                    <label for="linguagens">Linguagens de Programação
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Linguagens de Programação')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <div class="checkbox-groups" id="linguagens">
+                        <label><input type="checkbox" name="linguagens" value="PHP"> PHP</label>
+                        <label><input type="checkbox" name="linguagens" value="JavaScript"> JavaScript</label>
+                        <label><input type="checkbox" name="linguagens" value="Python"> Python</label>
+                        <label><input type="checkbox" name="linguagens" value="Java"> Java</label>
+                        <label><input type="checkbox" name="linguagens" value="C#"> C#</label>
                     </div>
                 </div>
 
-                <!-- Botões -->
-                <div class="botaoCenter form-group m-auto">
-                    <!-- Botão de Enviar com Ícone -->
-                    <button type="submit">
-                        <i class="fas fa-paper-plane"></i> Enviar
-                    </button>
-
-                    <!-- Botão de Limpar com Ícone -->
-                    <button type="reset">
-                        <i class="fas fa-undo-alt"></i> Limpar
-                    </button>
+                <div class="form-group">
+                    <label for="ferramentas">Ferramentas e Tecnologias
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Ferramentas e Tecnologias')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <select id="ferramentas" name="ferramentas" class="select-input">
+                        <option value="" disabled selected>Selecione</option>
+                        <option value="Git">Git</option>
+                        <option value="Docker">Docker</option>
+                        <option value="Jenkins">Jenkins</option>
+                        <option value="Kubernetes">Kubernetes</option>
+                        <option value="Outros">Outros</option>
+                    </select>
                 </div>
-            </form>
-        </div>
-    </main>
+            </fieldset>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <p>&copy; 2024 Hackathon Zup - Todos os direitos reservados.</p>
-        </div>
-    </footer>
+            <!-- Anexos -->
+            <fieldset>
+                <legend>Anexos
+                    <i class="fas fa-volume-up audio-icon" onclick="readText('Anexos')"
+                       aria-label="Reproduzir áudio descrição"></i>
+                </legend>
+                <div class="form-group">
+                    <label for="Laudo">Anexar Laudo
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar Laudo')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <input type="file" id="Laudo" name="Laudo">
+                </div>
+
+                <div class="form-group">
+                    <label for="cv">Anexar CV
+                        <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar CV')"
+                           aria-label="Reproduzir áudio descrição"></i>
+                    </label>
+                    <input type="file" id="cv" name="cv">
+                </div>
+            </fieldset>
+
+            <!-- Botões -->
+            <div class="botaoCenter form-group">
+                <button type="submit">
+                    <i class="fas fa-paper-plane"></i> Enviar
+                </button>
+                <button type="reset">
+                    <i class="fas fa-undo-alt"></i> Limpar
+                </button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-container">
+        <p>&copy; 2024 Hackathon Zup - Todos os direitos reservados.</p>
+    </div>
+</footer>
+
 
 </body>
 
