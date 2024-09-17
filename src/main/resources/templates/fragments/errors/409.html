@@ -1,0 +1,17 @@
+<div class="py-4 text-center">
+    <div class="text-secondary">
+        <h1 class="error-page-handler">409</h1>
+        <div class="h3">409: CONFLICT</div>
+        <div class="col-6 m-auto">
+            [[#{error.version.conflict}]]
+        </div>
+        <th:block th:if="${message}">
+            <div class="h4 my-2">Message:</div>
+            <div class="container" style="white-space: normal; word-wrap: break-word;">[[${message}]]</div>
+        </th:block>
+        <a class="btn btn-outline-primary my-4" href="javascript:history.back()">
+            <i class="bi bi-arrow-left-circle"></i>
+            [[#{back.to.previous.page}]]
+        </a>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="py-4 text-center">
+    <div class="text-secondary">
+        <h1 class="error-page-handler">403</h1>
+        <div class="h3">403: FORBIDDEN</div>
+        <div class="col-6 m-auto">
+            Desculpe, você não tem permissão para acessar esta página. Verifique se você está logado e tem as permissões
+            necessárias para acessar esta página.
+        </div>
+        <th:block th:if="${message}">
+            <div class="h4 my-2">Message:</div>
+            <div class="container" style="white-space: normal; word-wrap: break-word;">[[${message}]]</div>
+        </th:block>
+        <a class="btn btn-outline-primary my-4" href="javascript:history.back()">
+            <i class="bi bi-arrow-left-circle"></i>
+            [[#{back.to.previous.page}]]
+        </a>
+    </div>
+</div>

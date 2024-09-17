@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      layout:decorate="~{layout/default}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>RecruTechPCD - Home</title>
+</head>
+
+<body>
+
+<nav layout:fragment="top-menu" th:replace="~{fragments/nav-app :: nav-menu}"></nav>
+
+<div class="container my-5" layout:fragment="page-content">
+    
+    <div class="row">
+        
+        <div class="col-12 col-sm-12 col-md-12 col-lg-10 m-auto">
+            
+            <div class="container">
+                <h1>Consulte vagas exclusives de emprego para PCD</h1>
+                <p>Dê o próximo passo na sua carreira! Conectamos candidatos talentos Tech PCD com recrutadores de empresas de
+                   forma acessível.</p>
+                
+                <div class="input-group mb-3">
+                    <input type="text"
+                           class="form-control"
+                           placeholder="Digite o nome da vaga ou empresa"
+                           aria-label="Digite o nome da vaga ou empresa"
+                           aria-describedby="button-addon2">
+                    <button class="btn btn-outline-secondary border" type="button" id="button-addon2">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            
+            
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<div layout:fragment="footer" th:replace="~{fragments/footer-app}"></div>
+
+<th:block layout:fragment="js-extra"></th:block>
+
+</body>
+
+</html>
