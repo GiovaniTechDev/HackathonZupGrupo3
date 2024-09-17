@@ -50,7 +50,6 @@ public class UsuarioService {
         if (usuario.isNew()) {
             usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
             usuario.setCriadoEm(LocalDateTime.now());
-            System.out.println("USUARIO: " + usuario);
         } else {
             Usuario usuarioSaved = getUsuarioById(usuario.getId());
             if (usuarioSaved.getSenha() != null && !usuarioSaved.getSenha().equals(usuario.getSenha())) {

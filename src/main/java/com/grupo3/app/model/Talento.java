@@ -5,7 +5,6 @@ import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.DynamicUpdate;
@@ -17,7 +16,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true, callSuper = true)
 public class Talento extends Usuario {
 
-    @NotNull
+    //    @NotNull
     @Enumerated(EnumType.STRING)
     private TipoDeficiencia tipoDeficiencia;
 
