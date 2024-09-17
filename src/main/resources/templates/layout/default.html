@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      th:with="version=${#strings.randomAlphanumeric(4)}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:recrutechpcd="http://recrutechpcd.com"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">RecruTechPCD</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/vendors/bootstrap/bootstrap-icons.min.css}">
+    <link rel="stylesheet" th:href="@{/vendors/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/vendors/sweetalert2/bootstrap-4.css}">
+</head>
+
+<body>
+
+<input name="_csrf" th:value="${_csrf.token}" type="hidden"/>
+<input name="_csrf_header" th:value="${_csrf.headerName}" type="hidden"/>
+
+<th:block layout:fragment="top-menu"/>
+
+<recrutechpcd:alert bi="${bi}" message="${message}" type="${type}"/>
+
+<th:block layout:fragment="page-content"/>
+<th:block layout:fragment="footer"/>
+<th:block layout:fragment="modal-extra"/>
+
+<!--VENDORS-->
+<script th:src="@{/vendors/jquery/jquery.min.js}"></script>
+<script th:src="@{/vendors/bootstrap/popper.min.js}"></script>
+<script th:src="@{/vendors/bootstrap/bootstrap.min.js}"></script>
+<script th:src="@{/vendors/sweetalert2/sweetalert2.min.js}"></script>
+
+<!--PROJETO MAIN-->
+
+<script th:src="@{/js/script.js(v=${version})}"></script>
+
+<th:block layout:fragment="js-extra"/>
+
+</body>
+</html>

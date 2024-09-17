@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="order (page, property, text)">
+    <a th:href="${page.urlOrdenada(property)}" th:remove="${page.vazia} ? tag">
+        <span th:text="${text}"></span>
+        <span class="dropup"
+              th:if="${page.ordenada(property)}"
+              th:remove="${page.descendente(property)} ? tag">
+			<span class="caret"></span>
+		</span>
+    </a>
+</th:block>
+
+</html>

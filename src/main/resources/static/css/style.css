@@ -1,0 +1,796 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    /*box-sizing: border-box;*/
+}
+
+ul, li, ol {
+    list-style: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Header */
+.header {
+    background-color: #0e1a33;
+    color: #ffffff;
+    padding: 20px 0;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.header-logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-title {
+    font-size: 24px;
+}
+
+/* Accessibility Controls */
+.accessibility-controls {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.accessibility-icon {
+    background-color: #0e1a33;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.accessibility-menu {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.accessibility-menu button {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 5px 0;
+    cursor: pointer;
+    text-align: left;
+    color: #0e1a33;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h2 {
+    font-size: 28px;
+    color: #0e1a33;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Styles */
+form {
+    background-color: #ffffff;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+
+/* Efeito ao passar o mouse sobre o fieldset */
+fieldset:hover {
+    border-color: #007bff;
+    background-color: #f0f8ff;
+}
+
+/* Efeito ao focar em qualquer input dentro do fieldset */
+fieldset:focus-within {
+    border-color: #28a745;
+    background-color: #e8f5e9;
+}
+
+legend {
+    font-size: 18px;
+    font-weight: bold;
+    color: #0e1a33;
+    padding: 0 10px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="date"],
+.form-group input[type="file"],
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.checkbox-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Footer */
+.footer {
+    background-color: #0e1a33;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Audio Icon */
+.audio-icon {
+    margin-left: 5px;
+    cursor: pointer;
+    color: #0e1a33;
+}
+
+/* Input Focus */
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0e1a33;
+    outline: none;
+}
+
+/* Accessibility Menu Active State */
+.accessibility-menu.active {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-logo {
+        margin-bottom: 10px;
+    }
+
+    .main-content {
+        padding: 0 15px;
+    }
+}
+
+/* Estilização Básica dos Botões */
+.my-btn {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 16px;
+    background-color: #007BFF;
+    /* Azul padrão */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    outline: none;
+    /* Remove o contorno padrão */
+}
+
+/* Estado Hover: quando o cursor está sobre o botão */
+.my-btn:hover {
+    background-color: #0056b3;
+    /* Azul mais escuro */
+    transform: translateY(-2px);
+    /* Leve elevação */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estado Focus: quando o botão está focado (acessível via teclado) */
+.my-btn:focus {
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+    /* Contorno azul */
+}
+
+/* Estado Active: quando o botão está sendo clicado */
+.my-btn:active {
+    background-color: #004085;
+    /* Azul ainda mais escuro */
+    transform: translateY(0);
+    /* Remove a elevação */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilização para Melhor Acessibilidade: Foco Visível */
+.my-btn:focus-visible {
+    outline: 2px dashed #ffbf47;
+    /* Contorno visível para navegação por teclado */
+}
+
+
+/* ====== Contêiner de Controles de Acessibilidade ====== */
+.accessibility-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+/* ====== Botão de Ícone de Acessibilidade ====== */
+.accessibility-icon {
+    background-color: #007BFF;
+    /* Azul padrão */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-icon:hover {
+    background-color: #0056b3;
+    /* Azul mais escuro */
+    transform: scale(1.05);
+}
+
+.accessibility-icon:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.accessibility-icon:active {
+    background-color: #004085;
+    /* Azul ainda mais escuro */
+    transform: scale(1);
+}
+
+/* ====== Menu de Acessibilidade ====== */
+.accessibility-menu {
+    display: none;
+    /* Oculto por padrão */
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-width: 200px;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Exibir o menu quando ativo */
+.accessibility-menu.active {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ====== Botões do Menu ====== */
+.accessibility-menu button {
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.accessibility-menu button:hover {
+    background-color: #f0f0f0;
+    transform: translateX(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-menu button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.accessibility-menu button:active {
+    background-color: #e0e0e0;
+    transform: translateX(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Animação de Fade In ====== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ====== Responsividade ====== */
+@media (max-width: 600px) {
+    .accessibility-controls {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .accessibility-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .accessibility-menu {
+        min-width: 150px;
+        padding: 8px;
+    }
+
+    .accessibility-menu button {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+}
+
+/* ====== Modos Especiais (Opcional) ====== */
+/* Exemplo de como você pode estilizar diferentes modos */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.high-contrast {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+body.invert-colors {
+    filter: invert(1);
+}
+
+body.readable-font {
+    font-family: 'Verdana', sans-serif;
+}
+
+body.readable-spacing {
+    line-height: 1.6;
+}
+
+body.readable-cursor {
+    cursor: url('path/to/custom-cursor.png'), auto;
+}
+
+body.readable-images img {
+    /* Exemplos de estilos para imagens legíveis */
+    max-width: 100%;
+    height: auto;
+}
+
+body.readable-forms input,
+body.readable-forms textarea,
+body.readable-forms select {
+    /* Exemplos de estilos para formulários legíveis */
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.accessibility-menu button {
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 14px;
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.accessibility-menu button:hover {
+    background-color: #f0f0f0;
+    transform: translateX(5px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accessibility-menu button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.accessibility-menu button:active {
+    background-color: #e0e0e0;
+    transform: translateX(0);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.botaoCenter {
+    display: flex;
+    justify-content: center;
+}
+
+.botaoCenter {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Estilo básico para os botões */
+button {
+    background-color: #48c78e;
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Espaço entre o ícone e o texto */
+}
+
+/* Estilo hover nos botões */
+button:hover {
+    background-color: #3ab07c;
+}
+
+/* Estilo para o botão de limpar */
+button[type="reset"] {
+    background-color: #ccc;
+    color: #333;
+}
+
+/* Efeito hover no botão de limpar */
+button[type="reset"]:hover {
+    background-color: #b3b3b3;
+}
+
+/* Centraliza o ícone e o texto verticalmente */
+button i {
+    margin-right: 5px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: none; /* Escondido por padrão */
+    text-align: center; /* Centraliza o texto */
+    font-size: 16px; /* Tamanho de fonte mais legível */
+    font-family: 'Arial', sans-serif; /* Define uma fonte padrão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+    transition: all 0.3s ease-in-out; /* Transição suave ao aparecer/desaparecer */
+}
+
+/* Alerta de sucesso */
+.alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Alerta de erro */
+.alert-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Alerta de validação */
+.alert-validation {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+/* Container dos alertas */
+.alert-container {
+    max-width: 600px;
+    margin: 20px auto; /* Centraliza o container horizontalmente */
+    padding: 10px; /* Espaço interno para dar mais respiro */
+    text-align: center; /* Alinha o conteúdo do container ao centro */
+}
+
+/* Header */
+.header {
+    background-color: #0e1a33;
+    color: #ffffff;
+    padding: 20px 0;
+    background-image: url('http://localhost:63342/DesafioZupGrupo3/img/logo-fundo-cabe%C3%A7alho.jpg'); /* Adiciona a imagem de fundo */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    flex-wrap: wrap;
+}
+
+.header-logo {
+    height: 50px;
+    margin-right: 20px;
+}
+
+.header-title {
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Menu Login/Registrar */
+.menu-login-register {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.menu-login-register li {
+    margin: 0;
+}
+
+.menu-login-register a {
+    color: #ffffff;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.menu-login-register a:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos gerais do cabeçalho */
+.header {
+    background-color: #0e1a33;
+    color: white;
+    padding: 20px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header-logo {
+    max-width: 150px;
+}
+
+.header-title {
+    font-size: 24px;
+    margin-left: 10px;
+}
+
+/* Estilos para o menu de login/registro */
+.menu-login-register {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+}
+
+.menu-login-register li {
+    margin: 0;
+}
+
+.menu-login-register a {
+    color: #ffffff;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.menu-login-register a:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos responsivos para dispositivos móveis */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 10px 15px;
+    }
+
+    .header-logo {
+        max-width: 120px; /* Diminui o tamanho do logo em telas menores */
+        margin-bottom: 10px;
+    }
+
+    .header-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .menu-login-register {
+        flex-direction: column; /* Alinha os botões em uma coluna */
+        gap: 10px; /* Aumenta o espaçamento entre os botões */
+    }
+
+    .menu-login-register a {
+        padding: 12px 25px; /* Aumenta o tamanho dos botões para serem mais fáceis de tocar */
+        width: 100%; /* Torna os botões de login e registrar responsivos e ocupando a largura total */
+    }
+}
+
+/* Classe para adicionar margem superior */
+.mt-2 {
+    margin-top: 8px; /* Define 8px de margem superior */
+}
+
+/* Classe para adicionar margem inferior */
+.mb-2 {
+    margin-bottom: 8px; /* Define 8px de margem inferior */
+}
+
+/* Se você quiser ajustar as margens, basta alterar o valor. */
+
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    /* Classe para margem superior em mobile */
+    .mt-2 {
+        margin-top: 8px;
+    }
+
+    /* Classe para margem inferior em mobile */
+    .mb-2 {
+        margin-bottom: 8px;
+    }
+
+    /* Estilo para separar os botões no mobile */
+    .menu-login-register {
+        display: flex;
+        flex-direction: column; /* Alinha os itens verticalmente */
+        gap: 10px; /* Espaçamento entre os botões */
+        width: 100%; /* Faz os botões ocuparem 100% da largura */
+    }
+
+    .menu-login-register a {
+        text-align: center; /* Centraliza o texto nos botões */
+        width: 100%; /* Faz os botões ocuparem 100% da largura */
+    }
+}
+
+/* Estilos para o footer */
+.footer {
+    position: relative;
+    background-image: url('http://localhost:63342/DesafioZupGrupo3/img/logo-fundo-cabe%C3%A7alho.jpg');
+    background-size: cover; /* Garante que a imagem cubra todo o fundo */
+    background-position: center; /* Centraliza a imagem */
+    color: white; /* Cor do texto */
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(14, 26, 51, 0.7); /* Cor de sobreposição (transparente) */
+    z-index: 0; /* Mantém a camada atrás do conteúdo */
+}
+
+.footer-container {
+    position: relative;
+    z-index: 1; /* Garante que o conteúdo fique acima da sobreposição */
+}
+
+/* Estilos para a classe form-groups */
+.form-groups {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.form-groups label {
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    color: #333;
+}
+
+/* Estilos para a classe checkbox-groups */
+.checkbox-groups {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-groups label {
+    margin-bottom: 5px;
+    font-weight: normal;
+    color: #555;
+}
+
+/* Personalizando os inputs de checkbox */
+.checkbox-groups input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.checkbox-groups label:hover {
+    color: #007bff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-groups {
+        padding: 5px;
+    }
+
+    .checkbox-groups {
+        flex-direction: column;
+    }
+}

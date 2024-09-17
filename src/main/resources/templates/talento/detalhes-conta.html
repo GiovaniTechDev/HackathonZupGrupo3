@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      layout:decorate="~{layout/default}"
+      xmlns:recrutechpcd="http://recrutechpcd.com"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>RecruTechPCD - Detalhes da conta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Adicione este link no <head> do seu HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pap4A7QG9Pj6xj5lVYLPhz09vfrtEwEF0Mkd3kIu8xVFT88MV3R6d1lyUbJtjRnVlv+3TnkB7Pd3y54mUs3aKw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Favicon -->
+    <link rel="icon" href="https://zupinnovation.com/wp-content/uploads/2023/04/LogoSimbolo_Branco-654x1024.png" type="image/png">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <script th:src="@{/js/script.js}" defer></script>
+</head>
+
+<body>
+
+<nav layout:fragment="top-menu" th:replace="~{fragments/nav-app :: nav-menu}"></nav>
+
+<div class="container my-2" layout:fragment="page-content">
+    
+    <div class="row">
+        
+        <div class="col-12 col-sm-12 col-md-12 col-lg-10 m-auto">
+            
+            <div vw class="enabled">
+                <div vw-access-button class="active"></div>
+                <div vw-plugin-wrapper>
+                    <div class="vw-plugin-top-wrapper"></div>
+                </div>
+            </div>
+            
+            <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+            <script>  new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
+            
+            <!-- Accessibility Controls -->
+            <div class="accessibility-controls">
+                <button onclick="toggleAccessibilityMenu()" class="accessibility-icon">
+                    <i class="fas fa-universal-access"></i>
+                </button>
+                <div class="accessibility-menu" id="accessibility-menu">
+                    <button onclick="changeFontSize('small')" class="fonteMenor">Fonte menor</button>
+                    <button onclick="changeFontSize('large')" class="fonteMaior">Fonte maior</button>
+                    <button onclick="changeFontSize('default')" class="fontePadrao">Fonte padrão</button>
+                    <button onclick="toggleContrast()" class="altoContraste">Alto contraste</button>
+                    <button onclick="toggleDarkMode()" class="modoEscuro">Modo escuro</button>
+                    <button onclick="toggleInvertColors()" class="coresInvertidas">Cores invertidas</button>
+                </div>
+            </div>
+            
+            <!-- Main Content -->
+            <main class="">
+                <div class="container">
+                    <h1 class="fs-4 fw-bold">Detalhes da Conta Talento</h1>
+                    <form th:action="@{/talento/detalhes-conta}"
+                          th:method="POST"
+                          th:object="${talentoFormDto}">
+                        
+                        <!--                        <input th:field="*{id}" type="hidden"/>-->
+                        
+                        <fieldset>
+                            <h1 class="fs-4 fw-bold">Informações Pessoais</h1>
+                            <div class="form-group">
+                                <label for="nome">Nome
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-nome')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="nome" name="nome" placeholder="Nome"
+                                       th:field="*{nome}"
+                                       recrutechpcd:classforerror="nome">
+                                <div class="invalid-feedback" th:errors="*{nome}"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-email')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="email" name="email" placeholder="Email"
+                                       th:field="*{email}" recrutechpcd:classforerror="email">
+                                <div class="invalid-feedback" th:errors="*{email}"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="senha">Senha
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-senha')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="password" id="senha" name="senha" placeholder="Senha"
+                                       th:field="*{senha}" recrutechpcd:classforerror="senha">
+                                <div class="invalid-feedback" th:errors="*{senha}"></div>
+                            </div>
+                        
+                        
+                        </fieldset>
+                        
+                        <!-- Informações sobre a Deficiência -->
+                        <fieldset>
+                            <h1 class="fs-4 fw-bold">Informações sobre a Deficiência
+                                <i class="fas fa-volume-up audio-icon" onclick="readText('Informações sobre a Deficiência')"
+                                   aria-label="Reproduzir áudio descrição"></i>
+                            </h1>
+                            <div class="form-group">
+                                <label for="tipoDeficiencia">Qual é a sua Deficiência?
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('Qual é a sua Deficiência?')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <select id="tipoDeficiencia" class="select-input form-select"
+                                        th:field="*{tipoDeficiencia}"
+                                        recrutechpcd:classforerror="tipoDeficiencia">
+                                    <option value="">Selecione o tipo</option>
+                                    <option th:each="tipoDeficiencia : ${tiposDeDeficiencias}"
+                                            th:value="${tipoDeficiencia}">
+                                        [[${tipoDeficiencia.valor}]]
+                                    </option>
+                                </select>
+                                <div class="invalid-feedback" th:errors="*{tipoDeficiencia}"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="necessidades">Acessibilidades necessárias específicas
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('Necessidades Específicas')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <textarea id="necessidades" placeholder="Necessidades Específicas"
+                                          th:field="*{acessibilidadeNecessaria}"
+                                          recrutechpcd:classforerror="acessibilidadeNecessaria"></textarea>
+                                <div class="invalid-feedback" th:errors="*{acessibilidadeNecessaria}"></div>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- Competências e Habilidades -->
+                        <fieldset>
+                            <h1 class="fs-4 fw-bold">Competências e Habilidades
+                                <i class="fas fa-volume-up audio-icon" onclick="readText('Competências e Habilidades')"
+                                   aria-label="Reproduzir áudio descrição"></i>
+                            </h1>
+                            <div class="form-group">
+                                <label for="competencia">Competências
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-competencia')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="competencia" name="competencia" placeholder="Competência">
+                                <a class="d-inline-block fs-5 text-decoration-none js-add-competencia mt-3" href="#">
+                                    <i aria-hidden="true" class="bi-plus-circle"></i>
+                                    Nova Competência
+                                </a>
+                            </div>
+                        </fieldset>
+                        
+                        <!-- Anexos -->
+                        <fieldset>
+                            <h1 class="fs-4 fw-bold">Anexos
+                                <i class="fas fa-volume-up audio-icon" onclick="readText('Anexos')"
+                                   aria-label="Reproduzir áudio descrição"></i>
+                            </h1>
+                            <div class="form-group">
+                                <label for="Laudo">Anexar Laudo
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar Laudo')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="file" id="Laudo" name="Laudo">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cv">Anexar CV
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('Anexar CV')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="file" id="cv" name="cv">
+                            </div>
+                        </fieldset>
+                        
+                        <div>
+                            <button class="btn btn-lg text-white" type="submit" style="background-color: #0e1a33;">
+                                Salvar
+                            </button>
+                            <a class="btn btn-lg border" href="javascript:history.back()">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        
+        </div>
+    
+    </div>
+</div>
+
+<div layout:fragment="footer" th:replace="~{fragments/footer-app}"></div>
+
+<th:block layout:fragment="js-extra"></th:block>
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:fragment="pagination(objectPageWrapper)">
+    <div class="row text-center" th:if="${not objectPageWrapper.vazia}">
+        <nav>
+            <ul class="pagination justify-content-center align-items-center mt-3" th:with="paginaAtual=${objectPageWrapper.atual}">
+                
+                <li class="page-item" th:classappend="${objectPageWrapper.primeira} ? disabled">
+                    <a class="page-link" th:href="${objectPageWrapper.urlParaPagina(paginaAtual - 1)}">Anterior</a>
+                </li>
+                
+                <th:block th:each="p : ${#numbers.sequence(1, objectPageWrapper.total)}" th:with="numeroPagina=${p - 1}">
+                    <li class="page-item" th:classappend="${paginaAtual == numeroPagina} ? active">
+                        <a class="page-link" th:href="${objectPageWrapper.urlParaPagina(numeroPagina)}">[[${p}]]</a>
+                    </li>
+                </th:block>
+                
+                <li class="page-item" th:classappend="${objectPageWrapper.ultima} ? disabled">
+                    <a class="page-link" th:href="${objectPageWrapper.urlParaPagina(paginaAtual + 1)}">Próxima</a>
+                </li>
+            
+            </ul>
+        </nav>
+    </div>
+</th:block>
+
+</html>

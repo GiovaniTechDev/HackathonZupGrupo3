@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      layout:decorate="~{layout/default}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <title>RecruTechPCD - Detalhes da conta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" th:href="@{css/style.css}">
+    <script th:src="@{js/script.js}" defer></script>
+    <!-- Adicione este link no <head> do seu HTML -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pap4A7QG9Pj6xj5lVYLPhz09vfrtEwEF0Mkd3kIu8xVFT88MV3R6d1lyUbJtjRnVlv+3TnkB7Pd3y54mUs3aKw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <!-- Favicon -->
+    <link rel="icon" href="https://zupinnovation.com/wp-content/uploads/2023/04/LogoSimbolo_Branco-654x1024.png" type="image/png">
+
+</head>
+
+<body>
+
+<nav layout:fragment="top-menu" th:replace="~{fragments/nav-app :: nav-menu}"></nav>
+
+<div class="container my-5" layout:fragment="page-content">
+    
+    <div class="row">
+        
+        <div class="col-12 col-sm-12 col-md-12 col-lg-10 m-auto">
+            
+            <div vw class="enabled">
+                <div vw-access-button class="active"></div>
+                <div vw-plugin-wrapper>
+                    <div class="vw-plugin-top-wrapper"></div>
+                </div>
+            </div>
+            
+            <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+            <script>  new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
+            
+            <!-- Accessibility Controls -->
+            <div class="accessibility-controls">
+                <button onclick="toggleAccessibilityMenu()" class="accessibility-icon">
+                    <i class="fas fa-universal-access"></i>
+                </button>
+                <div class="accessibility-menu" id="accessibility-menu">
+                    <button onclick="changeFontSize('small')" class="fonteMenor">Fonte menor</button>
+                    <button onclick="changeFontSize('large')" class="fonteMaior">Fonte maior</button>
+                    <button onclick="changeFontSize('default')" class="fontePadrao">Fonte padrão</button>
+                    <button onclick="toggleContrast()" class="altoContraste">Alto contraste</button>
+                    <button onclick="toggleDarkMode()" class="modoEscuro">Modo escuro</button>
+                    <button onclick="toggleInvertColors()" class="coresInvertidas">Cores invertidas</button>
+                </div>
+            </div>
+            
+            <main class="">
+                <div class="container">
+                    <h1 class="fs-4 fw-bold">Detalhes da Conta Recrutador</h1>
+                    <form id="registration-form" enctype="multipart/form-data" onsubmit="return validateForm(event)">
+                        <fieldset>
+                            <h1 class="fs-4 fw-bold">Informações Básicas da Conta</h1>
+                            <div class="form-group">
+                                <label for="nome">Nome da Empresa
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-nome')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="nome" name="nome" placeholder="Nome" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-email')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="email" name="email" placeholder="Email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="senha">Senha
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-senha')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="senha" name="senha" placeholder="Senha" required>
+                            </div>
+                        
+                        </fieldset>
+                        
+                        <fieldset>
+                            <h1 class="fs-4 fw-bold">Informações da Empresa</h1>
+                            <div class="form-group">
+                                <label for="setor">Setor
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-setor')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="setor" name="nome" placeholder="Nome" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="cnpj">CNPJ
+                                    <i class="fas fa-volume-up audio-icon" onclick="readText('label-cnpj')"
+                                       aria-label="Reproduzir áudio descrição"></i>
+                                </label>
+                                <input type="text" id="cnpj" name="cnpj" placeholder="CNPJ" required>
+                            </div>
+                        
+                        </fieldset>
+                        
+                        <div>
+                            <button class="btn btn-lg text-white" type="submit" style="background-color: #0e1a33;">
+                                Salvar
+                            </button>
+                            <a class="btn btn-lg border" href="javascript:history.back()">
+                                Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </main>
+        
+        </div>
+    
+    </div>
+</div>
+
+<div layout:fragment="footer" th:replace="~{fragments/footer-app}"></div>
+
+<th:block layout:fragment="js-extra"></th:block>
+
+</body>
+
+</html>

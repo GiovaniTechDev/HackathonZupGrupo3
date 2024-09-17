@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      xmlns:recrutechpcd="http://recrutechpcd.com"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org"
+      th:with="version=${#strings.randomAlphanumeric(4)}">
+
+<head>
+    <title>RecruTechPCD - Registre-se</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <!-- Favicon -->
+    <link href="https://zupinnovation.com/wp-content/uploads/2023/04/LogoSimbolo_Branco-654x1024.png" rel="icon" type="image/png">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-pap4A7QG9Pj6xj5lVYLPhz09vfrtEwEF0Mkd3kIu8xVFT88MV3R6d1lyUbJtjRnVlv+3TnkB7Pd3y54mUs3aKw=="
+          referrerpolicy="no-referrer" rel="stylesheet"/>
+    <link rel="stylesheet" th:href="@{/css/registro.css(v=${version})}">
+</head>
+
+<body>
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script>  new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
+
+<div class="main-container my-2">
+    
+    <div class="image-container"></div>
+    
+    <div class="register-container">
+        <img src="https://zup.com.br/wp-content/uploads/2023/05/LogoMonotone_Negativo.png" alt="Logo Zup">
+        <h1>Criar Conta</h1>
+        <form th:action="@{/registro}"
+              th:method="POST"
+              th:object="${usuarioFormDto}">
+            
+            <input th:field="*{id}" type="hidden"/>
+            
+            <div class="form-group-registro">
+                <label for="nome" class="form-label">Nome Completo</label>
+                <input type="text" id="nome" class="form-control"
+                       placeholder="Digite seu nome completo"
+                       th:field="*{usuarioNome}"
+                       recrutechpcd:classforerror="usuarioNome">
+                <div class="invalid-feedback" th:errors="*{usuarioNome}"></div>
+            </div>
+            
+            <div class="form-group-registro">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" placeholder="Digite seu e-mail"
+                       th:field="*{email}"
+                       recrutechpcd:classforerror="email">
+                <div class="invalid-feedback" th:errors="*{email}"></div>
+            </div>
+            
+            <div class="form-group-registro">
+                <label for="password">Senha</label>
+                <input type="password" id="password" placeholder="Digite sua senha"
+                       th:field="*{senha}"
+                       recrutechpcd:classforerror="senha">
+                <div class="invalid-feedback" th:errors="*{senha}"></div>
+            </div>
+            
+            <div class="form-group-registro">
+                <label for="confirm-password">Confirmar Senha</label>
+                <input type="password" id="confirm-password" placeholder="Confirme sua senha"
+                       th:field="*{confirmacaoDeSenha}"
+                       recrutechpcd:classforerror="confirmacaoDeSenha">
+                <div class="invalid-feedback" th:errors="*{confirmacaoDeSenha}"></div>
+            </div>
+            
+            <div class="form-group">
+                <div class="control-label mb-1 fw-bold">Tipo Usuário</div>
+                <th:block th:each="tipo : ${tiposDeUsuarios}">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" id="tipo" class="form-check-input" name="tipoUsuario"
+                               th:id="${tipo}"
+                               th:value="${tipo}"
+                               th:checked="${tipo.name() == 'TALENTO'}">
+                        <label class="form-check-label" for="tipo"
+                               th:for="${tipo}">
+                            [[${tipo.valor}]]
+                        </label>
+                    </div>
+                </th:block>
+                <div class="invalid-feedback" th:errors="*{tipoUsuario}"></div>
+            </div>
+            
+            <button type="submit" class="register-btn">
+                <i class="fas fa-user-plus"></i> Registrar
+            </button>
+        </form>
+        
+        <div class="login-link">
+            <p>Já tem uma conta? <a href="/login">Faça login</a></p>
+        </div>
+    
+    </div>
+</div>
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+    </div>
+</div>
+
+<!-- Botão Flutuante para Página Inicial -->
+<a th:href="@{/}" class="floating-home-btn">
+    <i class="fas fa-home"></i>
+</a>
+
+<th:block layout:fragment="js-extra">
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script> new window.VLibras.Widget('https://vlibras.gov.br/app'); </script>
+    
+    <script>
+        // Função para validar o formulário de registro
+        function validateForm(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem.");
+                event.preventDefault(); // Impede o envio do formulário
+                return false;
+            }
+
+            return true; // Prossegue com o envio do formulário
+        }
+    </script>
+</th:block>
+</body>
+</html>

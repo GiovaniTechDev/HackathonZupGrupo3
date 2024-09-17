@@ -1,0 +1,38 @@
+<div class="py-4 text-center">
+    <div class="text-secondary">
+        <h1 class="error-page-handler">500</h1>
+        <div class="h3">500: INTERNAL SERVER ERROR</div>
+        <div class="col-6 m-auto">
+            Desculpe, algo muito estranho aconteceu e não conseguimos processar a sua requisição.
+            Tente de novo ou entre em contato conosco se precisar de ajuda.
+        </div>
+        <th:block th:if="${message}">
+            <div class="h4 my-2">Message:</div>
+            <div class="container" style="white-space: normal; word-wrap: break-word;">[[${message}]]</div>
+        </th:block>
+        <a class="btn btn-outline-primary my-4" href="javascript:history.back()">
+            <i class="bi bi-arrow-left-circle"></i>
+            [[#{back.to.previous.page}]]
+        </a>
+        
+        <th:block th:if="${exception}">
+            <div class="my-4 h4">Technical Information</div>
+            
+            <div class="flex mb-2">
+                <div class="me-2 h4">Error Code:</div>
+                <div class="font-monospace" th:text="${status}"></div>
+            </div>
+            
+            <div class="flex mb-2">
+                <div class="me-2 h4">Exception:</div>
+                <div class="font-monospace" th:text="${exception}"></div>
+            </div>
+            
+            <div class="mb-1 h4" th:if="${trace}">Stack trace:</div>
+            
+            <div class="ms-2 font-mono text-sm-start"
+                 style="white-space: normal; word-wrap: break-word;"
+                 th:text="${trace}"></div>
+        </th:block>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+<!--ALERT THYMELEAF-->
+<div role="alert"
+     th:class="'alert alert-' + ${type} + ' alert-dismissible fade show text-center col-4 m-auto mb-4'"
+     th:fragment="alert(type, message, bi)"
+     th:if="${type}">
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+    <i th:class="'bi bi-' + ${bi} + ' me-2'"></i> [[${message}]]
+</div>
+<!--ALERT THYMELEAF-->
+
+<!--ALERT JS AJAX-->
+<div class="alert alert-success alert-dismissible fade show text-center col-4 m-auto mb-4 js-ajax-message d-none"
+     role="alert"
+     th:fragment="alert-ajax">
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" title="fechar" type="button"></button>
+    <i class="bi bi-check-circle me-2"></i>
+</div>
+<!--ALERT JS AJAX-->
+
+<!--ALERT FIELDERRORS-->
+<div class="alert alert-dark alert-dismissible fade show col-7 m-auto mb-4"
+     role="alert"
+     th:fragment="fielderrors-object(fieldObject)"
+     th:if="${#fields.hasErrors(fieldObject)}">
+    
+    <h4 class="alert-heading">[[#{has.fielderrors.messages.desc(${#fields.errors(fieldObject).size()})}]]</h4>
+    
+    <button aria-label="Close" class="btn-close" data-bs-dismiss="alert" type="button"></button>
+    
+    <div th:each="err, iter : ${#fields.errors(fieldObject)}">
+        <i class="bi bi-exclamation-circle me-2"></i> [[${err}]]
+    </div>
+</div>
+<!--ALERT FIELDERRORS-->
+
+<!--Alert toast-->
+<div aria-atomic="true"
+     aria-live="assertive"
+     class="toast fade align-items-center position-fixed top-0 end-0 toast-container mt-3 me-3"
+     data-bs-delay="4500"
+     role="alert"
+     th:fragment="toast">
+    <div class="d-flex">
+        <div class="toast-body">Copiado com sucesso!</div>
+        <button aria-label="Close" class="btn-close me-2 m-auto" data-bs-dismiss="toast" type="button"></button>
+    </div>
+</div>
+<!--Alert toast-->
+
+<!--<th:block th:replace="~{fragments/alerts :: fielderrors-object('${pasta.*}')}"></th:block>-->

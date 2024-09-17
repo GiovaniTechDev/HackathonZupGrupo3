@@ -1,0 +1,219 @@
+/* Reseta estilos padrões */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo básico do body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Animação de fade-in para o formulário */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Contêiner principal que segura a imagem e o formulário */
+.main-container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Estilo para a parte da imagem */
+.image-container {
+    flex: 1;
+    background-image: url('https://scontent.fbnu3-1.fna.fbcdn.net/v/t39.30808-6/347596707_231143979554244_2440681729413608587_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=X8Dl1__SgKgQ7kNvgFcLjfX&_nc_ht=scontent.fbnu3-1.fna&_nc_gid=APvwjJzSN0qxXzMC2VZ83T9&oh=00_AYByKizPBZpEmGAIWdIyHqZFk8z4OziPQs7ZsvaaeutAPg&oe=66EA57DE');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Estilo para a parte de registro */
+.register-container {
+    flex: 1;
+    background-color: #0e1a33;
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: fadeIn 2s ease;
+}
+
+/* Estilo do logo */
+.register-container img {
+    max-width: 150px;
+    margin-bottom: 20px;
+}
+
+/* Título do formulário */
+.register-container h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Formulário de registro */
+.register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Grupos de formulário */
+.form-group-registro {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group-registro label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group-registro input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animação de foco nos campos de entrada */
+.form-group-registro input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Botão de registro */
+.register-btn {
+    padding: 10px;
+    background-color: white;
+    color: #0e1a33;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.register-btn:hover {
+    background-color: #dcdcdc;
+}
+
+/* Link para login */
+.login-link {
+    margin-top: 20px;
+    color: white;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de página inicial */
+.home-btn {
+    padding: 10px;
+    background-color: #ffffff;
+    color: #0e1a33;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.home-btn:hover {
+    background-color: #dcdcdc;
+}
+
+/* Responsividade para dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+    }
+
+    .register-container {
+        padding: 20px;
+    }
+
+    .image-container {
+        height: 200px;
+    }
+
+    .register-container img {
+        max-width: 100px;
+    }
+
+    .register-container h1 {
+        font-size: 20px;
+    }
+
+    .form-group-registro input {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    .register-btn, .home-btn {
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .login-link {
+        font-size: 14px;
+        text-align: center;
+    }
+}
+
+/* Botão flutuante para Página Inicial */
+.floating-home-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #28a745;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.floating-home-btn:hover {
+    background-color: #218838;
+}

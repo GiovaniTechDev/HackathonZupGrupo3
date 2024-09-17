@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br"
+      th:with="version=${#strings.randomAlphanumeric(4)}"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Error</title>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" th:href="@{/vendors/bootstrap/bootstrap-icons.min.css}">
+    <link rel="stylesheet" th:href="@{/vendors/bootstrap/bootstrap.min.css}">
+</head>
+<body>
+<div class="container my-4" layout:fragment="page-content">
+    <th:block th:replace="~{|fragments/errors/${status}|}"/>
+</div>
+</body>
+</html>
